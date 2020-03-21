@@ -34,10 +34,14 @@ Currently, this has been tested with:
 ## Sound
 At the moment, the stream will not transmit sound; a dummy audio track is streamed to YouTube. If you want to change this, you can change the `ffmpeg` options in `stream.sh` and rebuild the container.
 
+Removing line 9 from `stream.sh` should enable sound from your camera.
+
 ## Wouldn't a shell script have done?
 
 Probably, if you want to install dependencies yourself, go for it, then run:
 
 ```sh
-STREAM_KEY=your-youtube-stream-key ./stream.sh
+STREAM_KEY=your-youtube-stream-key \
+DEVICE=/dev/videoX \
+./stream.sh
 ```
